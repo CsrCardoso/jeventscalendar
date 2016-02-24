@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 $controller = JControllerLegacy::getInstance('Jeventscalendar');
  
 // Perform the Request task
-// ejecutamos tarea: /index.php?option=com_helloworld&task=<nombre_tarea
+// ejecutamos tarea: /index.php?option=com_jeventscalendar&task=<nombre_tarea
 $input = JFactory::getApplication()->input;
 $controller->execute($input->getCmd('task'));
  
