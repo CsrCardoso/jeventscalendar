@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.1
  */
-class jeventscalendarModelJeventscalendars extends JModelList
+class JeventscalendarModelJeventscalendars extends JModelList
 {
 	/**
 	 * Constructor.
