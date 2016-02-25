@@ -35,7 +35,7 @@ class JFormFieldJeventscalendar extends JFormFieldList
 	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,fecha,tipo,titulo,descripcion');
+		$query->select('id,date_from,date_to,type,title,description,link');
 		$query->from('#__jeventscalendar');
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
