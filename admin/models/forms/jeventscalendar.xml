@@ -6,13 +6,33 @@
 				type="hidden"
 				/>
 		<field
-				name="greeting"
+				name="titulo"
 				type="text"
-				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_GREETING_LABEL"
-				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_GREETING_DESC"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITULO_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITULO_DESC"
 				size="40"
 				class="inputbox"
 				default=""
 				/>
+		<field
+				name="descripcion"
+				type="text"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPCION_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPCION_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+
+		<field
+				name="fecha"
+				type="text"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_FECHA_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_FECHA_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+
 	</fieldset>
 </form>
