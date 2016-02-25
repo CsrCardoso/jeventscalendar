@@ -34,8 +34,14 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
+			<th width="40%">
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_NAME', 'titulo', $listDirn, $listOrder); ?>
+			</th>
+			<th width="40%">
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_FECHA', 'descripcion', $listDirn, $listOrder); ?>
+			</th>
 			<th width="90%">
-				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_NAME', 'greeting', $listDirn, $listOrder); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_FECHA', 'fecha', $listDirn, $listOrder); ?>
 			</th>
 			<th width="5%">
 				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_PUBLISHED', 'published', $listDirn, $listOrder); ?>
