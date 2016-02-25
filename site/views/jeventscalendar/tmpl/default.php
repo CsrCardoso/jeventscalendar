@@ -12,7 +12,7 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 <h1><?php echo $this->msg; ?></h1>
-kjhjdhdhhdh
+
 	<!-- Grid CSS File (only needed for demo page) -->
 	<link rel="stylesheet" href="http://www.vissit.com/projects/eventCalendar/css/paragridma.css">
 
@@ -40,27 +40,25 @@ kjhjdhdhhdh
 
 
 <div class="row">
+	<h2 class="h4">Calendario</h2>
 	<div class="g6">
-		<h2 class="h4">Human Date Format</h2>
-		<p class="demoDesc">Most of you don't like timestamp date format, so now you can use another formats</p>
+		<?php echo $this->msg; ?>
+	</div>
+	<div class="g6">
 		<div id="eventCalendarHumanDate"></div>
 		<script>
-			$(document).ready(function() {
+			$(document).ready(function(){
+				var eventsInline = [{"date": "1337594400000", "type": "meeting", "title": "Project A meeting", "description": "Lorem Ipsum dolor set", "url": "http://www.event1.com/" }];
 				$("#eventCalendarHumanDate").eventCalendar({
-					eventsjson: 'json/event.humanDate.json.php',
-					jsonDateFormat: 'human'  // 'YYYY-MM-DD HH:MM:SS'
-				});
+				  jsonData: eventsInline				
+				}); 
 			});
 		</script>
-		<pre>$(id).eventCalendar({
-			  eventsjson: 'file.json',
-			  jsonDateFormat: 'human'
-		});</pre>
 	</div>
 </div>
 
 
-
+<script src="http://www.vissit.com/projects/eventCalendar/js/moment.js" type="text/javascript"></script>
 <!--script src="js/jquery.timeago.js" type="text/javascript"></script-->
 <!--<script src="js/jquery.eventCalendar.min.js" type="text/javascript"></script>-->
 <script src="http://www.vissit.com/projects/eventCalendar/js/jquery.eventCalendar.min.js" type="text/javascript"></script>

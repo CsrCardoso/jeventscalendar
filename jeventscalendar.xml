@@ -49,6 +49,8 @@
 	<media destination="com_jeventscalendar" folder="media">
 		<filename>index.html</filename>
 		<folder>images</folder>
+		<folder>css</folder>
+		<folder>json</folder>
 	</media>
  
 	<administration>
