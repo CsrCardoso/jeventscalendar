@@ -6,29 +6,47 @@
 				type="hidden"
 				/>
 		<field
-				name="titulo"
+				name="title"
 				type="text"
-				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITULO_LABEL"
-				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITULO_DESC"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITLE_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITLE_DESC"
 				size="40"
 				class="inputbox"
 				default=""
 				/>
 		<field
-				name="descripcion"
+				name="description"
 				type="text"
-				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPCION_LABEL"
-				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPCION_DESC"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPTION_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPTION_DESC"
 				size="40"
 				class="inputbox"
 				default=""
 				/>
 
 		<field
-				name="fecha"
+				name="date_from"
 				type="text"
-				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_FECHA_LABEL"
-				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_FECHA_DESC"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_FROM_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_FROM_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+		<field
+				name="date_to"
+				type="text"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_TO_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_TO_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+		<field
+				name="link"
+				type="text"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_LINK_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_LINK_DESC"
 				size="40"
 				class="inputbox"
 				default=""

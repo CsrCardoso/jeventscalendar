@@ -34,14 +34,17 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
-			<th width="40%">
-				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_NAME', 'titulo', $listDirn, $listOrder); ?>
+			<th width="30%">
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_NAME', 'title', $listDirn, $listOrder); ?>
 			</th>
-			<th width="40%">
-				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_DESC', 'descripcion', $listDirn, $listOrder); ?>
+			<th width="30%">
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_DESC', 'description', $listDirn, $listOrder); ?>
 			</th>
-			<th width="90%">
-				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_FECHA', 'fecha', $listDirn, $listOrder); ?>
+			<th width="20%">
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_DATE_FROM', 'date_from', $listDirn, $listOrder); ?>
+			</th>
+			<th width="20%">
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_DATE_TO', 'date_to', $listDirn, $listOrder); ?>
 			</th>
 			<th width="5%">
 				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_PUBLISHED', 'published', $listDirn, $listOrder); ?>
@@ -73,15 +76,19 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 						</td>
 						<td>
 							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_JEVENTSCALENDAR_EDIT_JEVENTSCALENDAR'); ?>">
-							<?php echo $row->titulo; ?>
+							<?php echo $row->title; ?>
 						</td>
 						<td>
 							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_JEVENTSCALENDAR_EDIT_JEVENTSCALENDAR'); ?>">
-							<?php echo $row->descripcion; ?>
+							<?php echo $row->description; ?>
 						</td>
 						<td>
 							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_JEVENTSCALENDAR_EDIT_JEVENTSCALENDAR'); ?>">
-							<?php echo $row->fecha; ?>
+							<?php echo $row->date_from; ?>
+						</td>
+						<td>
+							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_JEVENTSCALENDAR_EDIT_JEVENTSCALENDAR'); ?>">
+							<?php echo $row->date_to; ?>
 						</td>
 						<td align="center">
 							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'jeventscalendars.', true, 'cb'); ?>

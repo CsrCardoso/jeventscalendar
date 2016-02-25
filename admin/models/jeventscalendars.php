@@ -30,7 +30,7 @@ class JeventscalendarModelJeventscalendars extends JModelList
 		{
 			$config['filter_fields'] = array(
 				'id',
-				'titulo',
+				'title',
 				'published'
 			);
 		}
@@ -59,7 +59,7 @@ class JeventscalendarModelJeventscalendars extends JModelList
 		if (!empty($search))
 		{
 			$like = $db->quote('%' . $search . '%');
-			$query->where('titulo LIKE ' . $like);
+			$query->where('title LIKE ' . $like);
 		}
  
 		// Filter by published state
@@ -75,7 +75,7 @@ class JeventscalendarModelJeventscalendars extends JModelList
 		}
  
 		// Add the list ordering clause.
-		$orderCol	= $this->state->get('list.ordering', 'titulo');
+		$orderCol	= $this->state->get('list.ordering', 'title');
 		$orderDirn 	= $this->state->get('list.direction', 'asc');
  
 		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
