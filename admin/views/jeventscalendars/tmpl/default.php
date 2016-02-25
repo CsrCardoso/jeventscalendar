@@ -38,7 +38,7 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_NAME', 'titulo', $listDirn, $listOrder); ?>
 			</th>
 			<th width="40%">
-				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_FECHA', 'descripcion', $listDirn, $listOrder); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_DESC', 'descripcion', $listDirn, $listOrder); ?>
 			</th>
 			<th width="90%">
 				<?php echo JHtml::_('grid.sort', 'COM_JEVENTSCALENDAR_JEVENTSCALENDARS_FECHA', 'fecha', $listDirn, $listOrder); ?>
@@ -73,7 +73,15 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 						</td>
 						<td>
 							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_JEVENTSCALENDAR_EDIT_JEVENTSCALENDAR'); ?>">
-							<?php echo $row->greeting; ?>
+							<?php echo $row->titulo; ?>
+						</td>
+						<td>
+							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_JEVENTSCALENDAR_EDIT_JEVENTSCALENDAR'); ?>">
+							<?php echo $row->descripcion; ?>
+						</td>
+						<td>
+							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_JEVENTSCALENDAR_EDIT_JEVENTSCALENDAR'); ?>">
+							<?php echo $row->fecha; ?>
 						</td>
 						<td align="center">
 							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'jeventscalendars.', true, 'cb'); ?>

@@ -65,7 +65,7 @@ class JeventscalendarModelJeventscalendar extends JModelItem
 			$table->load($id);
  
 			// Assign the message
-			$this->messages[$id] = $table->greeting;
+			$this->messages[$id] = $table->titulo;
 		}
  
 		return $this->messages[$id];
