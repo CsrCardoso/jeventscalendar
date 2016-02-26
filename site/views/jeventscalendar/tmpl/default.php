@@ -88,7 +88,7 @@ echo '[';
 	echo '	{ "date": "'.$fechainicio.'", "type": "meeting", "title": "'.$titulo.'", "description": "'.$descripcion.'", "url": "'.$link.'" },';
 	foreach ($this->msg['items'] as $row) {
 		$fini = strtotime($row->date_from)*1000;
-		echo '{ "date": "'.$fini.'", "type": "meeting", "title": "'.$titulo.'", "description": "'.$descripcion.'", "url": "'.$link.'" },';
+		echo '{ "date": "'.$fini.'", "type": "meeting", "title": "'.$row->title.'", "description": "'.$row->description.'", "url": "'.$row->link.'" },';
 	}
 echo ']';
 ?>

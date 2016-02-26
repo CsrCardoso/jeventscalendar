@@ -75,7 +75,7 @@ class JeventscalendarModelJeventscalendar extends JModelItem
 			 
 			// Select all records from the user profile table where key begins with "custom.".
 			// Order it by the ordering field.
-			$query->select($db->quoteName(array('id', 'date_from', 'date_to', 'title')));
+			$query->select($db->quoteName(array('id', 'date_from', 'date_to', 'title', 'description', 'link')));
 			$query->from($db->quoteName('#__jeventscalendar'));
 			$query->where($db->quoteName('date_from') . ' > '. $db->quote($table->date_from));
 			$query->order('date_from ASC');
