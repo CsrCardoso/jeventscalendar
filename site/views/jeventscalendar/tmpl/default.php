@@ -45,6 +45,7 @@ defined('_JEXEC') or die('Restricted access');
 	$fechainicio = strtotime($this->msg['date_from'])*1000; 
 	$fechafinal = strtotime($this->msg['date_to'])*1000; 
 
+	$id = $this->msg['id'];
 	$titulo = $this->msg['title'];
 	$descripcion = $this->msg['description'];
 	$link = $this->msg['link'];
@@ -56,28 +57,41 @@ defined('_JEXEC') or die('Restricted access');
 	<h2 class="h4">Calendario</h2>
 	<div class="g6" style="width:45%;">
 		<div style="text-align: center;
-	    background-color: rgba(214, 214, 214, 0.32);
-	    border-radius: 10px;"><?php echo $this->msg['date_from']; ?> </div>
-			<div style="text-align: center;
-	    font-size: 20px;
-	    color: #BD0000;
-	    position: relative;
-	    top: 10px;
-	    text-decoration: underline;"><?php echo $titulo; ?> </div>
+		    background-color: rgba(214, 214, 214, 0.32);
+		    border-radius: 10px;"><?php echo $this->msg['date_from']; ?> </div>
+		<div style="text-align: center;
+		    font-size: 20px;
+		    color: #BD0000;
+		    position: relative;
+		    top: 10px;
+		    text-decoration: underline;"><?php echo $titulo; ?> </div>
 		<div style="position: relative;
-	    top: 20px;
-	    width: 60%;
-	    text-align: center;
-	    background-color: #FDFDFD;
-	    margin: 0 auto; font-family: sans-serif;"><?php echo $descripcion; ?> </div>
+		    top: 20px;
+		    width: 60%;
+		    text-align: center;
+		    background-color: #FDFDFD;
+		    margin: 0 auto; font-family: sans-serif;"><?php echo $descripcion; ?> </div>
 		<div style="position: relative;
-	    top: 40px;
-	    width: 80%;
-	    text-align: center;
-	    background-color: #FAFAFF;
-	    margin: 0 auto; padding: 5px;
-    font-family: serif;
-    color: #B7BBC7;"><?php echo $lugar; ?> </div>
+		    top: 40px;
+		    width: 80%;
+		    text-align: center;
+		    background-color: #FAFAFF;
+		    margin: 0 auto; padding: 5px;
+	    	font-family: serif;
+	    	color: #B7BBC7;"><?php echo $lugar; ?> </div>
+		<div style="position: relative;
+		    top: 45px;
+		    width: 30%;
+		    text-align: center;
+		    background-color: #C0EAF3;
+		    margin: 0 auto;
+		    padding: 1px;
+		    font-family: serif;
+		    color: #B7BBC7;
+		    border-radius: 10px;
+		    border-right: 1px solid #7FB9B3;
+		    border-bottom: 1px solid #7FB9B3;
+		    font-size: 12px;"><a href="<?php echo $link; ?>" target="_blank"> Mas infomación</a></div>
 	</div>
 	<div class="g6" style="width:45%;">
 		<div id="eventCalendarHumanDate"></div>
@@ -85,10 +99,11 @@ defined('_JEXEC') or die('Restricted access');
 			$(document).ready(function(){
 				var eventsInline = <?php
 echo '[';
-	echo '	{ "date": "'.$fechainicio.'", "type": "meeting", "title": "'.$titulo.'", "description": "'.$descripcion.'", "url": "'.$link.'" },';
+	echo '	{ "date": "'.$fechainicio.'", "type": "meeting", "title": "'.$titulo.'", "description": "'.$descripcion.'", "url": "'.JURI::base().'index.php?option=com_jeventscalendar&view=jeventscalendar&id='.$id.'" },';
 	foreach ($this->msg['items'] as $row) {
 		$fini = strtotime($row->date_from)*1000;
-		echo '{ "date": "'.$fini.'", "type": "meeting", "title": "'.$row->title.'", "description": "'.$row->description.'", "url": "'.$row->link.'" },';
+		$url = JURI::base().'index.php?option=com_jeventscalendar&view=jeventscalendar&id='.$row->id;
+		echo '{ "date": "'.$fini.'", "type": "meeting", "title": "'.$row->title.'", "description": "'.$row->description.'", "url": "'.$url.'" },';
 	}
 echo ']';
 ?>
