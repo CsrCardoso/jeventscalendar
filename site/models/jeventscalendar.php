@@ -72,6 +72,7 @@ class JeventscalendarModelJeventscalendar extends JModelItem
 			$this->messages['title'] = $table->title;
 			$this->messages['description'] = $table->description;
 			$this->messages['link'] = $table->link;
+			$this->messages['lugar'] = $table->lugar;
 		}
  
 		return $this->messages;

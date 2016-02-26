@@ -51,6 +51,15 @@
 				class="inputbox"
 				default=""
 				/>
+		<field
+				name="lugar"
+				type="text"
+				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_LUGAR_LABEL"
+				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_LUGAR_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
 
 	</fieldset>
 </form>

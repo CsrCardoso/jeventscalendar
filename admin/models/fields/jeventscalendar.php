@@ -35,7 +35,7 @@ class JFormFieldJeventscalendar extends JFormFieldList
 	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,date_from,date_to,type,title,description,link');
+		$query->select('id,date_from,date_to,type,title,description,link,lugar');
 		$query->from('#__jeventscalendar');
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
@@ -45,7 +45,7 @@ class JFormFieldJeventscalendar extends JFormFieldList
 		{
 			foreach ($messages as $message)
 			{
-				$options[] = JHtml::_('select.option', $message->id, $message->fecha);
+				$options[] = JHtml::_('select.option', $message->id, $message->title);
 			}
 		}
  
