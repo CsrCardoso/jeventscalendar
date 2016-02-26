@@ -26,21 +26,23 @@
 
 		<field
 				name="date_from"
-				type="text"
+				type="calendar"
 				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_FROM_LABEL"
 				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_FROM_DESC"
 				size="40"
 				class="inputbox"
-				default=""
+				default="2016-02-01 17:30:00"
+				format="%Y.%m.%d %H:%I:%S"
 				/>
 		<field
 				name="date_to"
-				type="text"
+				type="calendar"
 				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_TO_LABEL"
 				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DATE_TO_DESC"
 				size="40"
 				class="inputbox"
-				default=""
+				default="2016-02-01 17:30:00"
+				format="%Y.%m.%d %H:%I:%S"
 				/>
 		<field
 				name="link"
