@@ -39,10 +39,16 @@ defined('_JEXEC') or die('Restricted access');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 
 <?php 
-	$date = new DateTime($this->msg['fecha']); 
-	$datetimestamp = strtotime($this->msg['fecha'])*1000; 
-	$titulo = $this->msg['titulo'];
-	$descripcion = $this->msg['descripcion'];
+	//var_dump($this->msg);
+	date_default_timezone_set('America/Mexico_City');
+	//$date = new DateTime($this->msg['date_from']); 
+	$fechainicio = strtotime($this->msg['date_from'])*1000; 
+	$fechafinal = strtotime($this->msg['date_to'])*1000; 
+
+	$titulo = $this->msg['title'];
+	$descripcion = $this->msg['description'];
+	$link = $this->msg['link'];
+	$lugar = $this->msg['lugar'];
 	//var_dump($datetimestamp);
 ?>
 
@@ -50,20 +56,28 @@ defined('_JEXEC') or die('Restricted access');
 	<h2 class="h4">Calendario</h2>
 	<div class="g6" style="width:45%;">
 		<div style="text-align: center;
-    background-color: rgba(214, 214, 214, 0.32);
-    border-radius: 10px;"><?php echo $this->msg['fecha']; ?> </div>
-		<div style="text-align: center;
-    font-size: 20px;
-    color: #BD0000;
-    position: relative;
-    top: 10px;
-    text-decoration: underline;"><?php echo $titulo; ?> </div>
+	    background-color: rgba(214, 214, 214, 0.32);
+	    border-radius: 10px;"><?php echo $this->msg['date_from']; ?> </div>
+			<div style="text-align: center;
+	    font-size: 20px;
+	    color: #BD0000;
+	    position: relative;
+	    top: 10px;
+	    text-decoration: underline;"><?php echo $titulo; ?> </div>
 		<div style="position: relative;
-    top: 20px;
-    width: 80%;
-    text-align: center;
-    background-color: #FDFDFD;
-    margin: 0 auto;"><?php echo $descripcion; ?> </div>
+	    top: 20px;
+	    width: 60%;
+	    text-align: center;
+	    background-color: #FDFDFD;
+	    margin: 0 auto; font-family: sans-serif;"><?php echo $descripcion; ?> </div>
+		<div style="position: relative;
+	    top: 40px;
+	    width: 80%;
+	    text-align: center;
+	    background-color: #FAFAFF;
+	    margin: 0 auto; padding: 5px;
+    font-family: serif;
+    color: #B7BBC7;"><?php echo $lugar; ?> </div>
 	</div>
 	<div class="g6" style="width:45%;">
 		<div id="eventCalendarHumanDate"></div>
@@ -71,52 +85,55 @@ defined('_JEXEC') or die('Restricted access');
 			$(document).ready(function(){
 				var eventsInline = <?php
 echo '[';
-$separator = "";
-$days = 16;
-	echo '	{ "date": "'.$datetimestamp.'", "type": "meeting", "title": "'.$titulo.'", "description": "'.$descripcion.'", "url": "http://www.event3.com/" },';
+	echo '	{ "date": "'.$fechainicio.'", "type": "meeting", "title": "'.$titulo.'", "description": "'.$descripcion.'", "url": "'.$link.'" },';
+	foreach ($this->msg['items'] as $row) {
+		$fini = strtotime($row->date_from)*1000;
+		echo '{ "date": "'.$fini.'", "type": "meeting", "title": "'.$titulo.'", "description": "'.$descripcion.'", "url": "'.$link.'" },';
+	}
 echo ']';
 ?>
 
 				$("#eventCalendarHumanDate").eventCalendar({
-				  jsonData: eventsInline,
-				  locales: {
-    locale: "es",
-	monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-		"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
-	dayNames: [ 'Domingo','Lunes','Martes','Miércoles',
-		'Jueves','Viernes','Sabado' ],
-	dayNamesShort: [ 'Dom','Lun','Mar','Mie', 'Jue','Vie','Sab' ],
-	txt_noEvents: "No hay eventos para este periodo",
-	txt_SpecificEvents_prev: "",
-	txt_SpecificEvents_after: "eventos:",
-	txt_next: "siguiente",
-	txt_prev: "anterior",
-	txt_NextEvents: "Próximos eventos:",
-	txt_GoToEventUrl: "Ir al evento",
-	moment: {
-        "months" : [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
-        "monthsShort" : [ "Ene", "Feb", "Mar", "Abr", "May", "Jun",
-                "Julio", "Ago", "Sep", "Oct", "Nov", "Dic" ],
-        "weekdays" : [ "Domingo","Lunes","Martes","Miércoles",
-                "Jueves","Viernes","Sabado" ],
-        "weekdaysShort" : [ "Dom","Lun","Mar","Mie",
-                "Jue","Vie","Sab" ],
-        "weekdaysMin" : [ "Do","Lu","Ma","Mi","Ju","Vi","Sa" ],
-        "longDateFormat" : {
-            "LT" : "H:mm",
-            "LTS" : "LT:ss",
-            "L" : "DD/MM/YYYY",
-            "LL" : "D [de] MMMM [de] YYYY",
-            "LLL" : "D [de] MMMM [de] YYYY LT",
-            "LLLL" : "dddd, D [de] MMMM [de] YYYY LT"
-        },
-        "week" : {
-            "dow" : 1,
-            "doy" : 4
-        }
-    }
-  }				
+				  	jsonData: eventsInline,
+				  	openEventInNewWindow: true,
+				  	locales: {
+					    locale: "es",
+						monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+							"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+						dayNames: [ 'Domingo','Lunes','Martes','Miércoles',
+							'Jueves','Viernes','Sabado' ],
+						dayNamesShort: [ 'Dom','Lun','Mar','Mie', 'Jue','Vie','Sab' ],
+						txt_noEvents: "No hay eventos para este periodo",
+						txt_SpecificEvents_prev: "",
+						txt_SpecificEvents_after: "eventos:",
+						txt_next: "siguiente",
+						txt_prev: "anterior",
+						txt_NextEvents: "Próximos eventos:",
+						txt_GoToEventUrl: "Ir al evento",
+						moment: {
+					        "months" : [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+					                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+					        "monthsShort" : [ "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+					                "Julio", "Ago", "Sep", "Oct", "Nov", "Dic" ],
+					        "weekdays" : [ "Domingo","Lunes","Martes","Miércoles",
+					                "Jueves","Viernes","Sabado" ],
+					        "weekdaysShort" : [ "Dom","Lun","Mar","Mie",
+					                "Jue","Vie","Sab" ],
+					        "weekdaysMin" : [ "Do","Lu","Ma","Mi","Ju","Vi","Sa" ],
+					        "longDateFormat" : {
+					            "LT" : "H:mm",
+					            "LTS" : "LT:ss",
+					            "L" : "DD/MM/YYYY",
+					            "LL" : "D [de] MMMM [de] YYYY",
+					            "LLL" : "D [de] MMMM [de] YYYY LT",
+					            "LLLL" : "dddd, D [de] MMMM [de] YYYY LT"
+					        },
+					        "week" : {
+					            "dow" : 1,
+					            "doy" : 4
+					        }
+					    }
+					  }				
 				}); 
 			});
 		</script>

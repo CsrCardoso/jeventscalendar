@@ -64,6 +64,31 @@ class JeventscalendarModelJeventscalendar extends JModelItem
 			// Load the message
 			$table->load($id);
  
+
+			//CONSULTAMOS TODAS LOS EVENTOS PROXIMOS:
+
+			 // Get a db connection.
+			$db = JFactory::getDbo();
+			 
+			// Create a new query object.
+			$query = $db->getQuery(true);
+			 
+			// Select all records from the user profile table where key begins with "custom.".
+			// Order it by the ordering field.
+			$query->select($db->quoteName(array('id', 'date_from', 'date_to', 'title')));
+			$query->from($db->quoteName('#__jeventscalendar'));
+			$query->where($db->quoteName('date_from') . ' > '. $db->quote($table->date_from));
+			$query->order('date_from ASC');
+			 
+			// Reset the query using our newly populated query object.
+			$db->setQuery($query);
+			 
+			// Load the results as a list of stdClass objects (see later for more options on retrieving data).
+			$results = $db->loadObjectList();
+
+
+			//GENERAMOS ARRAY A MOSTRAR:
+
 			// Assign the message
 			$this->messages['id'] = $table->id;
 			$this->messages['date_from'] = $table->date_from;
@@ -73,6 +98,7 @@ class JeventscalendarModelJeventscalendar extends JModelItem
 			$this->messages['description'] = $table->description;
 			$this->messages['link'] = $table->link;
 			$this->messages['lugar'] = $table->lugar;
+			$this->messages['items'] = $results;
 		}
  
 		return $this->messages;
