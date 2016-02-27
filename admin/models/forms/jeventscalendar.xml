@@ -7,7 +7,7 @@
 				/>
 		<field
 				name="title"
-				type="text"
+				type="textarea"
 				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITLE_LABEL"
 				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_TITLE_DESC"
 				size="40"
@@ -16,7 +16,7 @@
 				/>
 		<field
 				name="description"
-				type="text"
+				type="textarea"
 				label="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPTION_LABEL"
 				description="COM_JEVENTSCALENDAR_JEVENTSCALENDAR_DESCRIPTION_DESC"
 				size="40"
