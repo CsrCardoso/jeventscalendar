@@ -18,4 +18,36 @@ defined('_JEXEC') or die('Restricted access');
  */
 class JeventscalendarControllerJeventscalendar extends JControllerForm
 {
+
+	// FUNCION GUARDAR - MOD UPLOAD FILE A FUTURO 
+	// Archivo afectado tambien para mod en: 
+	// jquery_events_calendar_1.0\jeventscalendar\admin\models\forms\jeventscalendar.xml
+
+    /*function save(){
+    	        // Neccesary libraries and variables
+    jimport( 'joomla.filesystem.folder' );
+    jimport('joomla.filesystem.file');
+        $file = JRequest::getVar('jform', null, 'files', 'array');
+        $path = JPATH_BASE;
+
+        // Make the file name safe.
+        jimport('joomla.filesystem.file');
+        $file['name']['pdf_file'] = JFile::makeSafe($file['name']['pdf_file']);
+
+        // Move the uploaded file into a permanent location.
+        if (isset($file['name']['pdf_file'])) {
+            // Make sure that the full file path is safe.
+            $filepath = JPath::clean($path. DS ."images". DS ."sampledata". DS .strtolower($file['name']['pdf_file']));
+            // Move the uploaded file.
+            JFile::upload( $file['tmp_name']['pdf_file'], $filepath );
+
+            JRequest::setVar('jform',$file['name']['pdf_file'] );
+        }
+
+
+
+        return parent::save();
+    }
+
+    */
 }

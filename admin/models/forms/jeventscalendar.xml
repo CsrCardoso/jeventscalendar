@@ -62,6 +62,19 @@
 				class="inputbox"
 				default=""
 				/>
-
+<!-- CAMPO UPLOADIMAGEN - MOD A FUTURO
+Archivo afectado tambien en:
+\jquery_events_calendar_1.0\jeventscalendar\admin\controllers\jeventscalendar.php
+	    <field
+            type="file"
+            name="pdf_file"
+            label="COM_GONEWSLETTER_EDIT_FILE_LABEL"
+            default=""
+            description="COM_GONEWSLETTER_EDIT_FILE_DESC"
+            size="40"
+            accept="image/*"
+            class="fileuploader"
+        />
+-->
 	</fieldset>
 </form>
