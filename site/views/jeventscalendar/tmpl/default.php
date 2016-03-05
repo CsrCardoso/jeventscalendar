@@ -13,30 +13,15 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 <h1><?php //echo $this->msg; ?></h1>
 
-	<!-- Grid CSS File (only needed for demo page) -->
-	<link rel="stylesheet" href="http://www.vissit.com/projects/eventCalendar/css/paragridma.css">
-
-	<!-- Core CSS File. The CSS code needed to make eventCalendar works -->
-	<link rel="stylesheet" href="http://www.vissit.com/projects/eventCalendar/css/eventCalendar.css">
-
-	<!-- Theme CSS file: it makes eventCalendar nicer -->
-	<link rel="stylesheet" href="http://www.vissit.com/projects/eventCalendar/css/eventCalendar_theme_responsive.css">
-
-	<!-- Grid CSS File (only needed for demo page) -->
-	<?php 
-		JHTML::stylesheet("assets/csx<zxz<x<z/paragridma.css", array(), true);
-	?>
-
-	<!-- Core CSS File. The CSS code needed to make eventCalendar works -->
-	<?php 
-		JHTML::stylesheet("com_jeventscalendar/assets/css/eventCalendar.css", array(), true);
-	?>
-	<!-- Theme CSS file: it makes eventCalendar nicer -->
-	<?php 
-		JHTML::stylesheet("components/com_jeventscalendar/assets/css/eventCalendar_theme_responsive.css", array(), true);
-	?>
-	<!--<script src="js/jquery.js" type="text/javascript"></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<?php
+	$doc = JFactory::getDocument();
+	$doc->addScript("https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js");
+	$doc->addScript(JURI::base() . "media/com_jeventscalendar/js/moment.js");
+	$doc->addScript(JURI::base() . "media/com_jeventscalendar/js/jquery.eventCalendar.js");
+	$doc->addStyleSheet(JURI::base() . "media/com_jeventscalendar/css/paragridma.css");
+	$doc->addStyleSheet(JURI::base() . "media/com_jeventscalendar/css/eventCalendar.css");
+	$doc->addStyleSheet(JURI::base() . "media/com_jeventscalendar/css/eventCalendar_theme_responsive.css");
+?>
 
 <?php 
 	//var_dump($this->msg);
@@ -154,14 +139,3 @@ echo ']';
 		</script>
 	</div>
 </div>
-
-
-<script src="http://www.vissit.com/projects/eventCalendar/js/moment.js" type="text/javascript"></script>
-<!--script src="js/jquery.timeago.js" type="text/javascript"></script-->
-<!--<script src="js/jquery.eventCalendar.min.js" type="text/javascript"></script>-->
-<script src="http://www.vissit.com/projects/eventCalendar/js/jquery.eventCalendar.min.js" type="text/javascript"></script>
-<?php
-JHTML::script("com_jeventscalendar/assets/js/jquery.eventCalendar.js");
-?>
-
-
