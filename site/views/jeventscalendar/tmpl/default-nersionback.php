@@ -39,12 +39,58 @@ foreach ($this->msg['items'] as $row) {
 $eventsInline .= ']';
 
 	$doc = JFactory::getDocument();
+	$doc->addScript("https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js");
+	$doc->addScriptDeclaration('
+		$(document).ready(function(){
+				$("#eventCalendarHumanDate").eventCalendar({
+				  	jsonData: '.$eventsInline.',
+				  	openEventInNewWindow: true,
+				  	locales: {
+					    locale: "es",
+						monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+							"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+						dayNames: [ "Domingo","Lunes","Martes","Miércoles",
+							"Jueves","Viernes","Sabado" ],
+						dayNamesShort: [ "Dom","Lun","Mar","Mie", "Jue","Vie","Sab" ],
+						txt_noEvents: "No hay eventos para este periodo",
+						txt_SpecificEvents_prev: "",
+						txt_SpecificEvents_after: "eventos:",
+						txt_next: "siguiente",
+						txt_prev: "anterior",
+						txt_NextEvents: "Próximos eventos:",
+						txt_GoToEventUrl: "Ir al evento",
+						moment: {
+					        "months" : [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+					                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+					        "monthsShort" : [ "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+					                "Julio", "Ago", "Sep", "Oct", "Nov", "Dic" ],
+					        "weekdays" : [ "Domingo","Lunes","Martes","Miércoles",
+					                "Jueves","Viernes","Sabado" ],
+					        "weekdaysShort" : [ "Dom","Lun","Mar","Mie",
+					                "Jue","Vie","Sab" ],
+					        "weekdaysMin" : [ "Do","Lu","Ma","Mi","Ju","Vi","Sa" ],
+					        "longDateFormat" : {
+					            "LT" : "H:mm",
+					            "LTS" : "LT:ss",
+					            "L" : "DD/MM/YYYY",
+					            "LL" : "D [de] MMMM [de] YYYY",
+					            "LLL" : "D [de] MMMM [de] YYYY LT",
+					            "LLLL" : "dddd, D [de] MMMM [de] YYYY LT"
+					        },
+					        "week" : {
+					            "dow" : 1,
+					            "doy" : 4
+					        }
+					    }
+					  }				
+				}); 
+});
+	');
 	$doc->addStyleSheet(JURI::base() . "media/com_jeventscalendar/css/paragridma.css");
 	$doc->addStyleSheet(JURI::base() . "media/com_jeventscalendar/css/eventCalendar.css");
 	$doc->addStyleSheet(JURI::base() . "media/com_jeventscalendar/css/eventCalendar_theme_responsive.css");
-	$doc->addScript("https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js");
-	$doc->addScript(JURI::base() . "media/com_jeventscalendar/js/moment.js");
-	$doc->addScript(JURI::base() . "media/com_jeventscalendar/js/jquery.eventCalendar.js");
+	//$doc->addScript(JURI::base() . "media/com_jeventscalendar/js/moment.js");
+	//$doc->addScript(JURI::base() . "media/com_jeventscalendar/js/jquery.eventCalendar.js");
 ?>
 
 
@@ -91,51 +137,9 @@ $eventsInline .= ']';
 	</div>
 	<div class="g6" style="width:45%;">
 		<div id="eventCalendarHumanDate"></div>
-		<script type="text/javascript">
-		$(document).ready(function(){
-				$("#eventCalendarHumanDate").eventCalendar({
-				  	jsonData: <?php echo $eventsInline; ?>,
-				  	openEventInNewWindow: true,
-				  	locales: {
-					    locale: "es",
-						monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-							"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
-						dayNames: [ "Domingo","Lunes","Martes","Miércoles",
-							"Jueves","Viernes","Sabado" ],
-						dayNamesShort: [ "Dom","Lun","Mar","Mie", "Jue","Vie","Sab" ],
-						txt_noEvents: "No hay eventos para este periodo",
-						txt_SpecificEvents_prev: "",
-						txt_SpecificEvents_after: "eventos:",
-						txt_next: "siguiente",
-						txt_prev: "anterior",
-						txt_NextEvents: "Próximos eventos:",
-						txt_GoToEventUrl: "Ir al evento",
-						moment: {
-					        "months" : [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-					                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
-					        "monthsShort" : [ "Ene", "Feb", "Mar", "Abr", "May", "Jun",
-					                "Julio", "Ago", "Sep", "Oct", "Nov", "Dic" ],
-					        "weekdays" : [ "Domingo","Lunes","Martes","Miércoles",
-					                "Jueves","Viernes","Sabado" ],
-					        "weekdaysShort" : [ "Dom","Lun","Mar","Mie",
-					                "Jue","Vie","Sab" ],
-					        "weekdaysMin" : [ "Do","Lu","Ma","Mi","Ju","Vi","Sa" ],
-					        "longDateFormat" : {
-					            "LT" : "H:mm",
-					            "LTS" : "LT:ss",
-					            "L" : "DD/MM/YYYY",
-					            "LL" : "D [de] MMMM [de] YYYY",
-					            "LLL" : "D [de] MMMM [de] YYYY LT",
-					            "LLLL" : "dddd, D [de] MMMM [de] YYYY LT"
-					        },
-					        "week" : {
-					            "dow" : 1,
-					            "doy" : 4
-					        }
-					    }
-					  }				
-				}); 
-});
-		</script>
 	</div>
 </div>
+
+<script src="http://www.vissit.com/projects/eventCalendar/js/moment.js" type="text/javascript"></script>
+<script src="http://www.vissit.com/projects/eventCalendar/js/jquery.eventCalendar.min.js" type="text/javascript"></script>
+  
